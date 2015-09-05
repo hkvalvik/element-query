@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="dist/index.css">
+    <script src="../element-observer/index.min.js"></script>
+    <script src="index.min.js"></script>
+    <script src="dist/index.js"></script>
+</head>
+<body>
+    <nav class="nav-primary">
+        <ul>
+            <li class="nav-primary-home"><a href="/">Home</a></li>
+            <li><a href="/components">Components</a></li>
+            <li><a href="/element-query">Element Queries</a></li>
+            <li><a href="/element-observer">Element Observer</a></li>
+            <li><a href="/sass-bricks">Sass bricks</a></li>
+        </ul>
+    </nav>
+    <header class="header-primary">
+        <nav class="nav-secondary">
+            <span class="eq-logo">EQ</span>
+            <ul>
+                <li><a href="/element-query/test/test.html">Tests</a></li>
+                <li><a href="/">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="about">
+            <h2>Element <strong>queries</strong></h2>
+            <h3>CSS <strong>live</strong>processing</h3>
+            <p>
+                For full documentation, see <a href="http://github.com" target="_blank">GitHub</a>
+            </p>
+        </section>
+
+        <section class="demos">
+            <header class="typography-display">
+                <h3>Examples <strong>and documentation</strong></h3>
+            </header>
+<section class="demo-group">
+    <div class="demo-description">
+        <p>
+            <h4>Width and height</h4>
+            An element's width and height can depend on several factors, such as
+            the <code>window</code>'s size, the parent element's size and/or the element's content and css properties.
+            While css media queries are limited to the <code>window</code>'s width and height,
+            EQ targets the width of the element itself.
+        </p>
+    </div>
+
+<section class="demo" data-demo>
+<h3>Width</h3>
+<div class="demo-editor" data-demo-editor>
+<div class="demo-css">
+.width:max-width(20) { background-color: gray; }
+.width:min-width(40) { background-color: #fb9c7f; }
+.width:min-width(60) { background-color: black; }
+.width { display: inline-block; height: 40px; }
+</div>
+<div class="demo-html">
+<div class="width" style="width: 20px"></div>
+<div class="width" style="width: 40px"></div>
+<div class="width" style="width: 60px"></div>
+</div>
+</div>
+</section>
+
+<section class="demo" data-demo>
+<h3>Height</h3>
+<div class="demo-editor" data-demo-editor>
+<div class="demo-css">
+.height:max-height(20) { background-color: gray; }
+.height:min-height(40) { background-color: #fb9c7f; }
+.height:min-height(60) { background-color: black; }
+.height { display: inline-block; width: 40px; }
+</div>
+<div class="demo-html">
+<div class="height" style="height: 20px"></div>
+<div class="height" style="height: 40px"></div>
+<div class="height" style="height: 60px"></div>
+</div>
+</div>
+</section>
+
+</section>
+
+<section class="demo-group">
+    <div class="demo-description">
+        <h4>Other</h4>
+    </div>
+
+<section class="demo" data-demo>
+<h3>Text length</h3>
+<div class="demo-description">
+    <p>
+        Query elements by the number of characters they contain.
+    </p>
+</div>
+<div class="demo-editor" data-demo-editor>
+<div class="demo-css">
+.text-length:max-text-length(10) {
+    color: #fb9c7f;
+}
+
+.text-length:min-text-length(15):max-text-length(20) {
+    color: green;
+}
+</div>
+<div class="demo-html">
+<div class="text-length" contenteditable>
+    Change me!
+</div>
+</div>
+</div>
+</section>
+
+<section class="demo" data-demo>
+<h3>Overflow-x</h3>
+<div class="demo-editor" data-demo-editor>
+<div class="demo-css">
+.overflow:overflow-x(0) li { display: block }
+.overflow { white-space: nowrap }
+.overflow li {
+    display: inline-block;
+    margin-right: 50px;
+}
+</div>
+<div class="demo-html">
+<button onclick="addLi()">+</button>
+<button onclick="removeLi()">-</button>
+<ul class="overflow">
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+</ul>
+</div>
+</div>
+<script>
+    function addLi(){
+        document.querySelector('.overflow').innerHTML += '<li>Hello</li>';
+    }
+
+    function removeLi(){
+        var parent = document.querySelector('.overflow');
+        parent.removeChild(parent.lastChild);
+    }
+</script>
+</section>
+
+<section class="demo" data-demo>
+<h3>Has</h3>
+<p>
+    <a href="http://dev.w3.org/csswg/selectors-4/#relational" target="_blank">w3c.org specification</a>
+</p>
+<div class="demo-editor" data-demo-editor>
+<div class="demo-css">
+.has:has(.icon,strong) { color: #fb9c7f; }
+</div>
+<div class="demo-html">
+<div class="has"><span class="icon">♥</span> Lorem Ipsum</div>
+<div class="has"><strong>Lorem Ipsum</strong></div>
+<div class="has">Lorem Ipsum</div>
+</div>
+</div>
+</section>
+
+        </section>
+
+            </section>
+
+
+
+
+
+        <section data-performance class="performance">
+            <header class="typography-display" style="text-align: left">
+                <h2>What about <strong>performance</strong>?</h2>
+            </header>
+            <div class="typography-article">
+                <h3>Use it <strong>sparingly</strong></h3>
+                <p>
+                    <span class="eq-logo-inherit">EQ</span> uses JavaScript for rendering, and is therefore not nearly as fast as native CSS.
+                    Use it sparingly and do not apply it to a large number of elements.
+                    For example, instead of applying an element query to a large number of <code>&lt;li&gt;</code> elements,
+                    apply it to the parent <code>&lt;ul&gt;</code> instead (if possible):
+                    <br>
+                    <h6>Wrong</h6>
+                    <code>li:max-width(800) { display: block }</code>
+                    <h6>Right</h6>
+                    <code>ul:max-width(800) li { display: block }</code>
+                    <br>
+                </p>
+                <h3>Apply <strong>unambiguous</strong> styles</h3>
+                <p>
+                    What will happen in this scenario?
+                </p>
+                <code>.my-selector { width: 400px }</code><br>
+                <code>.my-selector:min-width(100):max-width(800) { width: 0 }</code><br>
+                <code>.my-selector:min-width(0) { width: 400px }</code><br>
+                <!--<div class="my-selector" style="background-color: red; height: 20px;"></div>-->
+                <p>
+                    <span class="eq-logo-inherit">EQ</span> will prevent infinite recursion by not allowing an endless, synchronous loop to occur.
+                    <br>
+                    However, not doing contradictory things in the first place will improve performance.
+                </p>
+                <h3>Use <strong>native CSS</strong> where propriate</h3>
+                <p>
+                    The purpose of <span class="eq-logo-inherit">EQ</span> is to enhance native CSS, not to replace it.
+                    <br>
+                    Use media queries and other techniques as usual, then add <span class="eq-logo-inherit">EQ</span>
+                    to make things more awesome.
+                </p>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <form>
+                <div>
+                    <label for="performance-length">Elements</label>
+                    <input id="performance-length" type="number" value="100" data-performance-length>
+                </div>
+                <div>
+                    <label for="performance-speed">Speed</label>
+                    <input id="performance-speed" type="number" value="10" data-performance-speed>
+                </div>
+                <div>
+                    <label for="performance-interval">Interval</label>
+                    <input id="performance-interval" type="number" value="50" data-performance-interval>
+                </div>
+                <div>
+                    <label for="performance-min-width">min-width</label>
+                    <input id="performance-min-width" name="method" type="checkbox" value="min-width">
+                </div>
+                <div>
+                    <label for="performance-max-width">max-width</label>
+                    <input id="performance-max-width" name="method" type="checkbox" value="max-width">
+                </div>
+                <div>
+                    <label for="performance-min-height">min-height</label>
+                    <input id="performance-min-height" name="method" type="checkbox" value="min-height">
+                </div>
+                <div>
+                    <label for="performance-max-height">max-height</label>
+                    <input id="performance-max-height" name="method" type="checkbox" value="max-height">
+                </div>
+                <input type="submit">
+                <button type="button" data-performance-pause>Pause</button>
+            </form>
+            <div class="performance-elements-container">
+                <div data-performance-elements class="performance-elements"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="demo/demo.js"></script>
+    <script src="demo/performance.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "name": "elementQuery",
+  "version": "0.0.1",
+  "description": "Advanced css queries driven by JavaScript",
+  "author": "hkvalvik",
+  "main": "index.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hkvalvik/element-query"
+  },
+  "keywords": [
+    "gulpplugin"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "codemirror": "^5.3.0",
+    "connect": "^3.3.5",
+    "css": "~2.2.0",
+    "jquery": "~2.1.4",
+    "serve-static": "^1.9.3",
+    "socket.io": "~1.3.5"
+  },
+  "devDependencies": {
+    "babelify": "^6.2.0",
+    "browserify": "^11.0.1",
+    "chai": "^2.3.0",
+    "gulp": "~3.9.0",
+    "gulp-add-src": "^0.2.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.5",
+    "gulp-wrap": "^0.11.0",
+    "mocha": "^2.2.5",
+    "node.normalize.scss": "^3.0.3",
+    "normalize-scss-vanilla": "^1.0.1",
+    "through2": "^2.0.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}

@@ -1,0 +1,22 @@
+$cm-color-base: #888;
+$cm-color-strong: #000;
+$cm-color-highlighted: $color-alpha-inverted-value;
+
+.cm-s-eq {
+  span.cm-comment { color: $cm-color-base; }
+  span.cm-keyword { line-height: 1em; font-weight: bold; color: $cm-color-strong; }
+  span.cm-string { color: $cm-color-base; }
+  span.cm-builtin { line-height: 1em; font-weight: bold; color: $cm-color-base; }
+  span.cm-special { line-height: 1em; font-weight: bold; color: $cm-color-base; }
+  span.cm-variable { color: black; }
+  span.cm-number, .cm-s-eq span.cm-atom { color: $cm-color-base; }
+  span.cm-meta {color: $cm-color-base;}
+  span.cm-link { color: $cm-color-base; }
+
+  .CodeMirror-activeline-background {background: #e8f2ff !important;}
+  .CodeMirror-matchingbracket {outline:1px solid grey; color:black !important;}
+
+  .cm-variable-3{
+    color: $cm-color-highlighted;
+  }
+}
